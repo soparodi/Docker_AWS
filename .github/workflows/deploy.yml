@@ -43,13 +43,15 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: List files in the repository (Debugging step)
-        run: ls -R
+      - name: Print working directory and list files
+        run: |
+          echo "Current working directory: $(pwd)"
+          ls -l
 
       - name: Deploy to AWS ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: ./task-definition.json  # Percorso relativo corretto per il file nella root del repository
+          task-definition: ./task-definition.json  # Percorso relativo corretto
           cluster: webapp-cluster
           service: webapp-service
           wait-for-service-stability: true
