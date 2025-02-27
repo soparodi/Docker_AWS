@@ -46,7 +46,7 @@ jobs:
       - name: Deploy to AWS ECS
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
-          task-definition: task-definition.json
+          task-definition: ./task-definition.json # Specifica il percorso esatto
           cluster: webapp-cluster
           service: webapp-service
           wait-for-service-stability: true
