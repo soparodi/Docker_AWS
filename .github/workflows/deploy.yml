@@ -55,6 +55,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ./task-definition.json  # Percorso relativo corretto
-          cluster: webapp-cluster
-          service: webapp-service
+          cluster: docker_aws
+          service: docker_aws
           wait-for-service-stability: true
